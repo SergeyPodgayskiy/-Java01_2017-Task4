@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://epam.com/treasures"
+            xmlns:tns="http://epam.com/treasures"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+    <xsd:element name="treasures" type="tns:Treasures"/>
+
+    <xsd:complexType name="Treasures">
+        <xsd:sequence>
+            <xsd:element name="treasure" type="tns:Treasure" maxOccurs="unbounded" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Treasure">
+        <xsd:choice>
+            <xsd:element name="jewel" type="tns:Jewel" maxOccurs="1"/>
+            <xsd:element name="ring" type="tns:Ring" maxOccurs="1"/>
+            <xsd:element name="bracelet" type="tns:Bracelet" maxOccurs="1"/>
+            <xsd:element name="chain" type="tns:Chain" maxOccurs="1"/>
+            <xsd:element name="sandglass" type="tns:Sandglass" maxOccurs="1"/>
+            <xsd:element name="beads" type="tns:Beads" maxOccurs="1"/>
+            <xsd:element name="coulomb" type="tns:Coulomb" maxOccurs="1"/>
+            <xsd:element name="cup" type="tns:Cup" maxOccurs="1"/>
+            <xsd:element name="vase" type="tns:Vase" maxOccurs="1"/>
+            <xsd:element name="statue" type="tns:Statue" maxOccurs="1"/>
+            <xsd:element name="painting" type="tns:Painting" maxOccurs="1"/>
+            <xsd:element name="casket" type="tns:Casket" maxOccurs="1"/>
+            <xsd:element name="key" type="tns:Key" maxOccurs="1"/>
+            <xsd:element name="sword" type="tns:Sword" maxOccurs="1"/>
+            <xsd:element name="staff" type="tns:Staff" maxOccurs="1"/>
+            <xsd:element name="mace" type="tns:Mace" maxOccurs="1"/>
+            <xsd:element name="axe" type="tns:Axe" maxOccurs="1"/>
+            <xsd:element name="bow" type="tns:Bow" maxOccurs="1"/>
+            <xsd:element name="helmet" type="tns:Helmet" maxOccurs="1"/>
+            <xsd:element name="scapular" type="tns:Scapular" maxOccurs="1"/>
+            <xsd:element name="armor" type="tns:Armor" maxOccurs="1"/>
+            <xsd:element name="trousers" type="tns:Trousers" maxOccurs="1"/>
+            <xsd:element name="boots" type="tns:Boots" maxOccurs="1"/>
+            <xsd:element name="ancient_book" type="tns:Ancient-book" maxOccurs="1"/>
+            <xsd:element name="ancient_scroll" type="tns:Ancient-scroll" maxOccurs="1"/>
+            <xsd:element name="magic_stone" type="tns:Magic-stone" maxOccurs="1"/>
+            <xsd:element name="runic_stone" type="tns:Runic-stone" maxOccurs="1"/>
+            <xsd:element name="ancient_fossil" type="tns:Ancient-fossil" maxOccurs="1"/>
+            <xsd:element name="dragons_egg" type="tns:Dragons-egg" maxOccurs="1"/>
+            <xsd:element name="ancient_tissue" type="tns:Ancient-tissue" maxOccurs="1"/>
+            <xsd:element name="aroma" type="tns:Aroma" maxOccurs="1"/>
+            <xsd:element name="princess" type="tns:Princess" maxOccurs="1"/>
+        </xsd:choice>
+    </xsd:complexType>
+    <xsd:complexType name="Jewel">
+        <xsd:sequence>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="diameter" type="xsd:double"/>
+            <xsd:element name="weight" type="xsd:double"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Ring">
+        <xsd:sequence>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="weight" type="xsd:double"/>
+            <xsd:element name="style" type="xsd:string"/>
+            <xsd:element name="hasPreciousStone" type="xsd:boolean"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Bracelet">
+        <xsd:sequence>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="weight" type="xsd:double"/>
+            <xsd:element name="style" type="xsd:string"/>
+            <xsd:element name="girth" type="xsd:double"/>
+            <xsd:element name="hardness" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Chain">
+        <xsd:sequence>
+            <xsd:element name="length" type="xsd:double"/>
+            <xsd:element name="weight" type="xsd:double"/>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="thickness" type="xsd:double"/>
+            <xsd:element name="type_of_lock" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Sandglass">
+        <xsd:sequence>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="sand_type" type="xsd:string"/>
+            <xsd:element name="weight" type="xsd:double"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Beads">
+        <xsd:sequence>
+            <xsd:element name="length" type="xsd:double"/>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="weight" type="xsd:double"/>
+            <xsd:element name="thickness" type="xsd:double"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Coulomb">
+        <xsd:sequence>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="size" type="xsd:double"/>
+            <xsd:element name="weight" type="xsd:double"/>
+            <xsd:element name="form" type="xsd:string"/>
+            <xsd:element name="picture" type="xsd:boolean"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Cup">
+        <xsd:sequence>
+            <xsd:element name="volume" type="xsd:short"/>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="weight" type="xsd:double"/>
+            <xsd:element name="height" type="xsd:double"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Vase">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="volume" type="xsd:double"/>
+            <xsd:element name="hasPicture" type="xsd:boolean"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Statue">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="weight" type="xsd:double"/>
+            <xsd:element name="size" type="xsd:double"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="creation_date" type="xsd:string"/>
+            <xsd:element name="creator" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Painting">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="creation_date" type="xsd:string"/>
+            <xsd:element name="creator" type="xsd:string"/>
+            <xsd:element name="quality" type="xsd:string"/>
+            <xsd:element name="paint_type" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Casket">
+        <xsd:sequence>
+            <xsd:element name="size" type="xsd:double"/>
+            <xsd:element name="weight" type="xsd:double"/>
+            <xsd:element name="hasLock" type="xsd:boolean"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Key">
+        <xsd:sequence>
+            <xsd:element name="size" type="xsd:double"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="what_open" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Sword">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="weight" type="xsd:double"/>
+            <xsd:element name="length" type="xsd:double"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="blade_thickness" type="xsd:double"/>
+            <xsd:element name="damage" type="xsd:double"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Staff">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="length" type="xsd:double"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="tip_type" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Mace">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="size" type="xsd:double"/>
+            <xsd:element name="damage" type="xsd:double"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Axe">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="type_handle" type="xsd:string"/>
+            <xsd:element name="type_blade" type="xsd:string"/>
+            <xsd:element name="damage" type="xsd:double"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Bow">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="size" type="xsd:double"/>
+            <xsd:element name="arrow_type" type="xsd:string"/>
+            <xsd:element name="arrow_count" type="xsd:short"/>
+            <xsd:element name="damage" type="xsd:double"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Helmet">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="head_protection" type="xsd:double"/>
+            <xsd:element name="head_girth" type="xsd:double"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Scapular">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="scapular_girth" type="xsd:double"/>
+            <xsd:element name="body_protection" type="xsd:boolean"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Armor">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="body_protection" type="xsd:boolean"/>
+            <xsd:element name="body_girth" type="xsd:double"/>
+            <xsd:element name="hasPicture" type="xsd:boolean"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Trousers">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="leg_protection" type="xsd:boolean"/>
+            <xsd:element name="leg_girth" type="xsd:double"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Boots">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="leg_protection" type="xsd:boolean"/>
+            <xsd:element name="foot_girth" type="xsd:double"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Ancient-book">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="age" type="xsd:short"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="pages" type="xsd:short"/>
+            <xsd:element name="language" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Ancient-scroll">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="age" type="xsd:short"/>
+            <xsd:element name="content" type="xsd:string"/>
+            <xsd:element name="school_of_magic" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Magic-stone">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="age" type="xsd:short"/>
+            <xsd:element name="magic_word" type="xsd:string"/>
+            <xsd:element name="translation" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Runic-stone">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="amount_rune" type="xsd:short"/>
+            <xsd:element name="engraved_rune" type="xsd:string"/>
+            <xsd:element name="translation" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Ancient-fossil">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="age" type="xsd:int"/>
+            <xsd:element name="accessory" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Dragons-egg">
+        <xsd:sequence>
+            <xsd:element name="size" type="xsd:double"/>
+            <xsd:element name="dragons_kind" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Ancient-tissue">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="size" type="xsd:double"/>
+            <xsd:element name="material" type="xsd:string"/>
+            <xsd:element name="hasPattern" type="xsd:boolean"/>
+            <xsd:element name="pattern_type" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Aroma">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="amount" type="xsd:short"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Princess">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="age" type="xsd:short"/>
+            <xsd:element name="damnation" type="xsd:boolean"/>
+            <xsd:element name="birthplace" type="xsd:string"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:int" use="required"/>
+    </xsd:complexType>
+</xsd:schema>
