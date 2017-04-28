@@ -111,7 +111,7 @@ public class Jewel extends Treasure {
 
     @Override
     public String toString() {
-        return "Jewel{" +
+        return  super.toString() + "{" +
                 "type='" + type + '\'' +
                 ", material='" + material + '\'' +
                 ", diameter=" + diameter +

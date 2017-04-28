@@ -38,16 +38,32 @@ public class DragonsEgg extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof DragonsEgg)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
-        DragonsEgg that = (DragonsEgg) o;
+        DragonsEgg dragonsEgg = (DragonsEgg) o;
 
-        if (Double.compare(that.getSize(), getSize()) != 0) return false;
-        if (Double.compare(that.getPrice(), getPrice()) != 0) return false;
-        return getDragonsKind() != null ? getDragonsKind().equals(that.getDragonsKind()) : that.getDragonsKind() == null;
-
+        if (price != dragonsEgg.price) {
+            return false;
+        }
+        if (size != dragonsEgg.size) {
+            return false;
+        }
+        if (dragonsKind == null) {
+            return false;
+        } else {
+            if (!dragonsKind.equals(dragonsEgg.dragonsKind)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -64,7 +80,7 @@ public class DragonsEgg extends Treasure {
 
     @Override
     public String toString() {
-        return "DragonsEgg{" +
+        return  super.toString() + "{" +
                 "size=" + size +
                 ", dragonsKind='" + dragonsKind + '\'' +
                 ", price=" + price +

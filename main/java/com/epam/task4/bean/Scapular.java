@@ -65,20 +65,49 @@ public class Scapular extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Scapular)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Scapular scapular = (Scapular) o;
 
-        if (Double.compare(scapular.getScapularGirth(), getScapularGirth()) != 0) return false;
-        if (isBodyProtection() != scapular.isBodyProtection()) return false;
-        if (Double.compare(scapular.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(scapular.getTitle()) : scapular.getTitle() != null) return false;
-        if (getMaterial() != null ? !getMaterial().equals(scapular.getMaterial()) : scapular.getMaterial() != null)
+        if (price != scapular.price) {
             return false;
-        return getType() != null ? getType().equals(scapular.getType()) : scapular.getType() == null;
-
+        }
+        if (scapularGirth != scapular.scapularGirth) {
+            return false;
+        }
+        if (bodyProtection != scapular.bodyProtection) {
+            return false;
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(scapular.title)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(scapular.type)) {
+                return false;
+            }
+        }
+        if (material == null) {
+            return false;
+        } else {
+            if (!material.equals(scapular.material)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -98,7 +127,7 @@ public class Scapular extends Treasure {
 
     @Override
     public String toString() {
-        return "Scapular{" +
+        return super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", material='" + material + '\'' +
                 ", type='" + type + '\'' +

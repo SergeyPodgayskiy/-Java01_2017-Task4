@@ -10,7 +10,7 @@ public class Sword extends Treasure {
     private double weight;
     private double length;
     private String type;
-    private double bladeThikness;
+    private double bladeThickness;
     private double damage;
     private double price;
 
@@ -57,12 +57,12 @@ public class Sword extends Treasure {
         this.type = type;
     }
 
-    public double getBladeThikness() {
-        return bladeThikness;
+    public double getBladeThickness() {
+        return bladeThickness;
     }
 
-    public void setBladeThikness(double bladeThikness) {
-        this.bladeThikness = bladeThikness;
+    public void setBladeThickness(double bladeThickness) {
+        this.bladeThickness = bladeThickness;
     }
 
     public double getDamage() {
@@ -83,22 +83,55 @@ public class Sword extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Sword)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Sword sword = (Sword) o;
 
-        if (Double.compare(sword.getWeight(), getWeight()) != 0) return false;
-        if (Double.compare(sword.getLength(), getLength()) != 0) return false;
-        if (Double.compare(sword.getBladeThikness(), getBladeThikness()) != 0) return false;
-        if (Double.compare(sword.getDamage(), getDamage()) != 0) return false;
-        if (Double.compare(sword.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(sword.getTitle()) : sword.getTitle() != null) return false;
-        if (getMaterial() != null ? !getMaterial().equals(sword.getMaterial()) : sword.getMaterial() != null)
+        if (price != sword.price) {
             return false;
-        return getType() != null ? getType().equals(sword.getType()) : sword.getType() == null;
-
+        }
+        if (weight != sword.weight) {
+            return false;
+        }
+        if (length != sword.length) {
+            return false;
+        }
+        if (damage != sword.damage) {
+            return false;
+        }
+        if (bladeThickness != sword.bladeThickness) {
+            return false;
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(sword.title)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(sword.type)) {
+                return false;
+            }
+        }
+        if (material == null) {
+            return false;
+        } else {
+            if (!material.equals(sword.material)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -112,7 +145,7 @@ public class Sword extends Treasure {
         temp = Double.doubleToLongBits(getLength());
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (getType() != null ? getType().hashCode() : 0);
-        temp = Double.doubleToLongBits(getBladeThikness());
+        temp = Double.doubleToLongBits(getBladeThickness());
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(getDamage());
         result = 31 * result + (int) (temp ^ (temp >>> 32));
@@ -123,13 +156,13 @@ public class Sword extends Treasure {
 
     @Override
     public String toString() {
-        return "Sword{" +
+        return  super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", material='" + material + '\'' +
                 ", weight=" + weight +
                 ", length=" + length +
                 ", type='" + type + '\'' +
-                ", bladeThikness=" + bladeThikness +
+                ", bladeThickness=" + bladeThickness +
                 ", damage=" + damage +
                 ", price=" + price +
                 '}';

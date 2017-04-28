@@ -16,7 +16,6 @@ public final class BuilderProvider {
     private TreasureBuilder treasureBuilder;
 
     public BuilderProvider() {
-        repository.put(BuilderName.WRONG_REQUEST, new WrongRequestBuilder());
         repository.put(BuilderName.JEWEL, new JewelBuilder());
         repository.put(BuilderName.RING, new RingBuilder());
         repository.put(BuilderName.BRACELET, new BraceletBuilder());
@@ -33,7 +32,7 @@ public final class BuilderProvider {
             BuilderName builderName = BuilderName.valueOf(name.toUpperCase());
             treasureBuilder = repository.get(builderName);
         } catch (IllegalArgumentException | NullPointerException e) {
-            treasureBuilder = repository.get(BuilderName.WRONG_REQUEST);
+            System.err.println(" Builder wasn't found!\n" + e); //todo log4
         }
         return treasureBuilder.createTreasure();
     }

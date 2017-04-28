@@ -74,21 +74,52 @@ public class Armor extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Armor)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Armor armor = (Armor) o;
 
-        if (isBodyProtection() != armor.isBodyProtection()) return false;
-        if (isHasPicture() != armor.isHasPicture()) return false;
-        if (Double.compare(armor.getBodyGirth(), getBodyGirth()) != 0) return false;
-        if (Double.compare(armor.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(armor.getTitle()) : armor.getTitle() != null) return false;
-        if (getMaterial() != null ? !getMaterial().equals(armor.getMaterial()) : armor.getMaterial() != null)
+        if (bodyGirth != armor.bodyGirth) {
             return false;
-        return getType() != null ? getType().equals(armor.getType()) : armor.getType() == null;
-
+        }
+        if (price != armor.price) {
+            return false;
+        }
+        if (bodyProtection != armor.bodyProtection) {
+            return false;
+        }
+        if (hasPicture != armor.hasPicture) {
+            return false;
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(armor.title)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(armor.type)) {
+                return false;
+            }
+        }
+        if (material == null) {
+            return false;
+        } else {
+            if (!material.equals(armor.material)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -109,7 +140,7 @@ public class Armor extends Treasure {
 
     @Override
     public String toString() {
-        return "Armor{" +
+        return  super.toString() +"{" +
                 "title='" + title + '\'' +
                 ", material='" + material + '\'' +
                 ", type='" + type + '\'' +

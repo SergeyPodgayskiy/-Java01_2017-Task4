@@ -47,17 +47,39 @@ public class Key extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Key)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Key key = (Key) o;
 
-        if (Double.compare(key.getSize(), getSize()) != 0) return false;
-        if (Double.compare(key.getPrice(), getPrice()) != 0) return false;
-        if (getType() != null ? !getType().equals(key.getType()) : key.getType() != null) return false;
-        return getWhatOpen() != null ? getWhatOpen().equals(key.getWhatOpen()) : key.getWhatOpen() == null;
-
+        if (price != key.price) {
+            return false;
+        }
+        if (size != key.size) {
+            return false;
+        }
+        if (whatOpen == null) {
+            return false;
+        } else {
+            if (!whatOpen.equals(key.whatOpen)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(key.type)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -75,7 +97,7 @@ public class Key extends Treasure {
 
     @Override
     public String toString() {
-        return "Key{" +
+        return  super.toString() + "{" +
                 "size=" + size +
                 ", type='" + type + '\'' +
                 ", whatOpen='" + whatOpen + '\'' +

@@ -10,6 +10,12 @@ import com.epam.task4.service.builder.TreasureBuilder;
  *         18.04.2017.
  */
 public class JewelBuilder implements TreasureBuilder {
+    private final String id = "id";
+    private final String material = "material";
+    private final String type = "type";
+    private final String diameter = "diameter";
+    private final String weight = "weight";
+    private final String price = "price";
     private Jewel jewel;
 
     @Override
@@ -21,22 +27,22 @@ public class JewelBuilder implements TreasureBuilder {
     @Override
     public TreasureBuilder setParameter(String tagName, String tagValue) {
         switch (tagName) {
-            case "id":
+            case id:
                 jewel.setId(Integer.parseInt(tagValue));
                 return this;
-            case "type":
+            case type:
                 jewel.setType(tagValue);
                 return this;
-            case "material":
+            case material:
                 jewel.setMaterial(tagValue);
                 return this;
-            case "diameter":
+            case diameter:
                 jewel.setDiameter(Double.parseDouble(tagValue));
                 return this;
-            case "weight":
+            case weight:
                 jewel.setWeight(Double.parseDouble(tagValue));
                 return this;
-            case "price":
+            case price:
                 jewel.setPrice(Double.parseDouble(tagValue));
                 return this;
             default:

@@ -4,7 +4,7 @@ package com.epam.task4.bean;
  * @author serge
  *         16.04.2017.
  */
-public class Princess extends Treasure{
+public class Princess extends Treasure {
     private String name;
     private String birthplace;
     private short age;
@@ -47,17 +47,39 @@ public class Princess extends Treasure{
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Princess)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Princess princess = (Princess) o;
 
-        if (getAge() != princess.getAge()) return false;
-        if (isDamnation() != princess.isDamnation()) return false;
-        if (getName() != null ? !getName().equals(princess.getName()) : princess.getName() != null) return false;
-        return getBirthplace() != null ? getBirthplace().equals(princess.getBirthplace()) : princess.getBirthplace() == null;
-
+        if (damnation != princess.damnation) {
+            return false;
+        }
+        if (age != princess.age) {
+            return false;
+        }
+        if (name == null) {
+            return false;
+        } else {
+            if (!name.equals(princess.name)) {
+                return false;
+            }
+        }
+        if (birthplace == null) {
+            return false;
+        } else {
+            if (!birthplace.equals(princess.birthplace)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -72,7 +94,7 @@ public class Princess extends Treasure{
 
     @Override
     public String toString() {
-        return "Princess{" +
+        return  super.toString() + "{" +
                 "name='" + name + '\'' +
                 ", birthplace='" + birthplace + '\'' +
                 ", age=" + age +

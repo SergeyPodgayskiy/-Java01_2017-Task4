@@ -65,20 +65,49 @@ public class Trousers extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Trousers)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Trousers trousers = (Trousers) o;
 
-        if (isLegProtection() != trousers.isLegProtection()) return false;
-        if (Double.compare(trousers.getLegGirth(), getLegGirth()) != 0) return false;
-        if (Double.compare(trousers.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(trousers.getTitle()) : trousers.getTitle() != null) return false;
-        if (getMaterial() != null ? !getMaterial().equals(trousers.getMaterial()) : trousers.getMaterial() != null)
+        if (price != trousers.price) {
             return false;
-        return getType() != null ? getType().equals(trousers.getType()) : trousers.getType() == null;
-
+        }
+        if (legProtection != trousers.legProtection) {
+            return false;
+        }
+        if (legGirth != trousers.legGirth) {
+            return false;
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(trousers.title)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(trousers.type)) {
+                return false;
+            }
+        }
+        if (material == null) {
+            return false;
+        } else {
+            if (!material.equals(trousers.material)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -98,7 +127,7 @@ public class Trousers extends Treasure {
 
     @Override
     public String toString() {
-        return "Trousers{" +
+        return  super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", material='" + material + '\'' +
                 ", type='" + type + '\'' +

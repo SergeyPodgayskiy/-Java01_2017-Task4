@@ -56,18 +56,46 @@ public class Staff extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Staff)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Staff staff = (Staff) o;
 
-        if (Double.compare(staff.getLength(), getLength()) != 0) return false;
-        if (Double.compare(staff.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(staff.getTitle()) : staff.getTitle() != null) return false;
-        if (getType() != null ? !getType().equals(staff.getType()) : staff.getType() != null) return false;
-        return getTypeTip() != null ? getTypeTip().equals(staff.getTypeTip()) : staff.getTypeTip() == null;
-
+        if (price != staff.price) {
+            return false;
+        }
+        if (length != staff.length) {
+            return false;
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(staff.title)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(staff.type)) {
+                return false;
+            }
+        }
+        if (typeTip == null) {
+            return false;
+        } else {
+            if (!typeTip.equals(staff.typeTip)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -86,7 +114,7 @@ public class Staff extends Treasure {
 
     @Override
     public String toString() {
-        return "Staff{" +
+        return  super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", length=" + length +
                 ", type='" + type + '\'' +

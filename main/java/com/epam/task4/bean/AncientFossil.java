@@ -47,17 +47,39 @@ public class AncientFossil extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof AncientFossil)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
-        AncientFossil that = (AncientFossil) o;
+        AncientFossil ancientFossil = (AncientFossil) o;
 
-        if (getAge() != that.getAge()) return false;
-        if (Double.compare(that.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(that.getTitle()) : that.getTitle() != null) return false;
-        return getAccessory() != null ? getAccessory().equals(that.getAccessory()) : that.getAccessory() == null;
-
+        if (age != ancientFossil.age) {
+            return false;
+        }
+        if (price != ancientFossil.price) {
+            return false;
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(ancientFossil.title)) {
+                return false;
+            }
+        }
+        if (accessory == null) {
+            return false;
+        } else {
+            if (!accessory.equals(ancientFossil.accessory)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -74,7 +96,7 @@ public class AncientFossil extends Treasure {
 
     @Override
     public String toString() {
-        return "AncientFossil{" +
+        return super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", age=" + age +
                 ", accessory='" + accessory + '\'' +

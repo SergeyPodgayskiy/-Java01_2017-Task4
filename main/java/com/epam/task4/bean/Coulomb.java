@@ -65,20 +65,45 @@ public class Coulomb extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Coulomb)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Coulomb coulomb = (Coulomb) o;
 
-        if (Double.compare(coulomb.getSize(), getSize()) != 0) return false;
-        if (Double.compare(coulomb.getWeight(), getWeight()) != 0) return false;
-        if (isHasPicture() != coulomb.isHasPicture()) return false;
-        if (Double.compare(coulomb.getPrice(), getPrice()) != 0) return false;
-        if (getMaterial() != null ? !getMaterial().equals(coulomb.getMaterial()) : coulomb.getMaterial() != null)
+        if (price != coulomb.price) {
             return false;
-        return getForm() != null ? getForm().equals(coulomb.getForm()) : coulomb.getForm() == null;
-
+        }
+        if (size != coulomb.size) {
+            return false;
+        }
+        if (weight != coulomb.weight) {
+            return false;
+        }
+        if (hasPicture != coulomb.hasPicture) {
+            return false;
+        }
+        if (form == null) {
+            return false;
+        } else {
+            if (!form.equals(coulomb.form)) {
+                return false;
+            }
+        }
+        if (material == null) {
+            return false;
+        } else {
+            if (!material.equals(coulomb.material)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -95,5 +120,17 @@ public class Coulomb extends Treasure {
         temp = Double.doubleToLongBits(getPrice());
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return  super.toString() + "{" +
+                "material='" + material + '\'' +
+                ", size=" + size +
+                ", weight=" + weight +
+                ", form='" + form + '\'' +
+                ", hasPicture=" + hasPicture +
+                ", price=" + price +
+                '}';
     }
 }

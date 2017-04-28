@@ -112,7 +112,6 @@ public class Axe extends Treasure {
             }
         }
         return true;
-
     }
 
     @Override
@@ -132,7 +131,7 @@ public class Axe extends Treasure {
 
     @Override
     public String toString() {
-        return "Axe{" +
+        return  super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", type='" + type + '\'' +
                 ", typeBlade='" + typeBlade + '\'' +

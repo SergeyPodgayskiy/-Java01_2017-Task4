@@ -9,7 +9,14 @@ import com.epam.task4.service.builder.TreasureBuilder;
  *         19.04.2017.
  */
 public class ChainBuilder implements TreasureBuilder {
-    Chain chain;
+    private final String id = "id";
+    private final String material = "material";
+    private final String length = "length";
+    private final String thickness = "thickness";
+    private final String weight = "weight";
+    private final String price = "price";
+    private final String typeOfLock = "type_of_lock";
+    private Chain chain;
 
     @Override
     public TreasureBuilder createTreasure() {
@@ -18,27 +25,27 @@ public class ChainBuilder implements TreasureBuilder {
     }
 
     @Override
-    public TreasureBuilder setParameter(String tagName,String tagValue) {
+    public TreasureBuilder setParameter(String tagName, String tagValue) {
         switch (tagName) {
-            case "id":
+            case id:
                 chain.setId(Integer.parseInt(tagValue));
                 return this;
-            case "length":
+            case length:
                 chain.setLength(Double.parseDouble(tagValue));
                 return this;
-            case "material":
+            case material:
                 chain.setMaterial(tagValue);
                 return this;
-            case "weight":
+            case weight:
                 chain.setWeight(Double.parseDouble(tagValue));
                 return this;
-            case "thickness":
+            case thickness:
                 chain.setThikness(Double.parseDouble(tagValue));
                 return this;
-            case "type_of_lock":
+            case typeOfLock:
                 chain.setLockType(tagValue);
                 return this;
-            case "price":
+            case price:
                 chain.setPrice(Double.parseDouble(tagValue));
                 return this;
             default:

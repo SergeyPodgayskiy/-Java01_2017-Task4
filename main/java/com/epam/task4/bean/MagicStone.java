@@ -65,20 +65,53 @@ public class MagicStone extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof MagicStone)) return false;
-        if (!super.equals(o)) return false;
-
-        MagicStone that = (MagicStone) o;
-
-        if (getAge() != that.getAge()) return false;
-        if (Double.compare(that.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(that.getTitle()) : that.getTitle() != null) return false;
-        if (getType() != null ? !getType().equals(that.getType()) : that.getType() != null) return false;
-        if (getMagicWords() != null ? !getMagicWords().equals(that.getMagicWords()) : that.getMagicWords() != null)
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
             return false;
-        return getTranslation() != null ? getTranslation().equals(that.getTranslation()) : that.getTranslation() == null;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
+        MagicStone magicStone = (MagicStone) o;
+
+        if (price != magicStone.price) {
+            return false;
+        }
+        if (age != magicStone.age) {
+            return false;
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(magicStone.type)) {
+                return false;
+            }
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(magicStone.title)) {
+                return false;
+            }
+        }
+        if (magicWords == null) {
+            return false;
+        } else {
+            if (!magicWords.equals(magicStone.magicWords)) {
+                return false;
+            }
+        }
+        if (translation == null) {
+            return false;
+        } else {
+            if (!translation.equals(magicStone.translation)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -97,7 +130,7 @@ public class MagicStone extends Treasure {
 
     @Override
     public String toString() {
-        return "MagicStone{" +
+        return  super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", type='" + type + '\'' +
                 ", age=" + age +

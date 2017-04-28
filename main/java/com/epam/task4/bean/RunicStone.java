@@ -65,20 +65,53 @@ public class RunicStone extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof RunicStone)) return false;
-        if (!super.equals(o)) return false;
-
-        RunicStone that = (RunicStone) o;
-
-        if (getAmountRune() != that.getAmountRune()) return false;
-        if (Double.compare(that.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(that.getTitle()) : that.getTitle() != null) return false;
-        if (getType() != null ? !getType().equals(that.getType()) : that.getType() != null) return false;
-        if (getEngravedRune() != null ? !getEngravedRune().equals(that.getEngravedRune()) : that.getEngravedRune() != null)
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
             return false;
-        return getRuneTranslation() != null ? getRuneTranslation().equals(that.getRuneTranslation()) : that.getRuneTranslation() == null;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
+        RunicStone runicStone = (RunicStone) o;
+
+        if (price != runicStone.price) {
+            return false;
+        }
+        if (amountRune != runicStone.amountRune) {
+            return false;
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(runicStone.title)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(runicStone.type)) {
+                return false;
+            }
+        }
+        if (engravedRune == null) {
+            return false;
+        } else {
+            if (!engravedRune.equals(runicStone.engravedRune)) {
+                return false;
+            }
+        }
+        if (runeTranslation == null) {
+            return false;
+        } else {
+            if (!runeTranslation.equals(runicStone.runeTranslation)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -97,7 +130,7 @@ public class RunicStone extends Treasure {
 
     @Override
     public String toString() {
-        return "RunicStone{" +
+        return  super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", type='" + type + '\'' +
                 ", amountRune=" + amountRune +

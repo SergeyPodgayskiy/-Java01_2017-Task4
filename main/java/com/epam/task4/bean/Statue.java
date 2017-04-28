@@ -74,21 +74,56 @@ public class Statue extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Statue)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Statue statue = (Statue) o;
 
-        if (Double.compare(statue.getWeight(), getWeight()) != 0) return false;
-        if (Double.compare(statue.getSize(), getSize()) != 0) return false;
-        if (Double.compare(statue.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(statue.getTitle()) : statue.getTitle() != null) return false;
-        if (getType() != null ? !getType().equals(statue.getType()) : statue.getType() != null) return false;
-        if (getCreationDate() != null ? !getCreationDate().equals(statue.getCreationDate()) : statue.getCreationDate() != null)
+        if (price != statue.price) {
             return false;
-        return getCreator() != null ? getCreator().equals(statue.getCreator()) : statue.getCreator() == null;
-
+        }
+        if (weight != statue.weight) {
+            return false;
+        }
+        if (size != statue.size) {
+            return false;
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(statue.title)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(statue.type)) {
+                return false;
+            }
+        }
+        if (creationDate == null) {
+            return false;
+        } else {
+            if (!creationDate.equals(statue.creationDate)) {
+                return false;
+            }
+        }
+        if (creator == null) {
+            return false;
+        } else {
+            if (!creator.equals(statue.creator)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -110,7 +145,7 @@ public class Statue extends Treasure {
 
     @Override
     public String toString() {
-        return "Statue{" +
+        return  super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", weight=" + weight +
                 ", size=" + size +

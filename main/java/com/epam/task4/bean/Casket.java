@@ -47,17 +47,31 @@ public class Casket extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Casket)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Casket casket = (Casket) o;
 
-        if (Double.compare(casket.getSize(), getSize()) != 0) return false;
-        if (Double.compare(casket.getWeight(), getWeight()) != 0) return false;
-        if (isHasLock() != casket.isHasLock()) return false;
-        return Double.compare(casket.getPrice(), getPrice()) == 0;
-
+        if (price != casket.price) {
+            return false;
+        }
+        if (size != casket.size) {
+            return false;
+        }
+        if (weight != casket.weight) {
+            return false;
+        }
+        if (hasLock != casket.hasLock) {
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -76,7 +90,7 @@ public class Casket extends Treasure {
 
     @Override
     public String toString() {
-        return "Casket{" +
+        return  super.toString() + "{" +
                 "size=" + size +
                 ", weight=" + weight +
                 ", hasLock=" + hasLock +

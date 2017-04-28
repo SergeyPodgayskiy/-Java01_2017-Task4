@@ -9,7 +9,14 @@ import com.epam.task4.service.builder.TreasureBuilder;
  *         19.04.2017.
  */
 public class AxeBuilder implements TreasureBuilder {
-    Axe axe;
+    private final String id = "id";
+    private final String title = "title";
+    private final String type = "type";
+    private final String typeBlade = "type_blade";
+    private final String price = "price";
+    private final String typeHandle = "type_handle";
+    private final String damage = "damage";
+    private Axe axe;
 
     @Override
     public TreasureBuilder createTreasure() {
@@ -20,25 +27,25 @@ public class AxeBuilder implements TreasureBuilder {
     @Override
     public TreasureBuilder setParameter(String tagName,String tagValue) {
         switch (tagName) {
-            case "id":
+            case id:
                 axe.setId(Integer.parseInt(tagValue));
                 return this;
-            case "title":
+            case title:
                 axe.setTitle(tagValue);
                 return this;
-            case "type":
+            case type:
                 axe.setType(tagValue);
                 return this;
-            case "type_blade":
+            case typeBlade:
                 axe.setTypeBlade(tagValue);
                 return this;
-            case "type_handle":
+            case typeHandle:
                 axe.setTypeHandle(tagValue);
                 return this;
-            case "price":
+            case price:
                 axe.setPrice(Double.parseDouble(tagValue));
                 return this;
-            case "damage":
+            case damage:
                 axe.setDamage(Double.parseDouble(tagValue));
                 return this;
             default:

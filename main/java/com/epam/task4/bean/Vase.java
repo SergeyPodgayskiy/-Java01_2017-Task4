@@ -56,18 +56,42 @@ public class Vase extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Vase)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Vase vase = (Vase) o;
 
-        if (Double.compare(vase.getVolume(), getVolume()) != 0) return false;
-        if (isHasPicture() != vase.isHasPicture()) return false;
-        if (Double.compare(vase.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(vase.getTitle()) : vase.getTitle() != null) return false;
-        return getType() != null ? getType().equals(vase.getType()) : vase.getType() == null;
-
+        if (price != vase.price) {
+            return false;
+        }
+        if (volume != vase.volume) {
+            return false;
+        }
+        if (hasPicture != vase.hasPicture) {
+            return false;
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(vase.title)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(vase.type)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -86,7 +110,7 @@ public class Vase extends Treasure {
 
     @Override
     public String toString() {
-        return "Vase{" +
+        return  super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", type='" + type + '\'' +
                 ", volume=" + volume +

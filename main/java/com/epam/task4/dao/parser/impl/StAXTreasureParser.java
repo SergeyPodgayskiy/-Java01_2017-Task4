@@ -30,22 +30,17 @@ public class StAXTreasureParser implements TreasureParser {
 
     @Override
     public ArrayList<Treasure> parse(String path) throws DAOException {
-        if (path == null || path.isEmpty()) {
-            throw new DAOException("Incorrect filePath");
-        }
         try {
             InputStream inputStream = new FileInputStream(path);
             reader = xmlInputFactory.createXMLStreamReader(inputStream);
-
         } catch (FileNotFoundException | XMLStreamException e) {
             throw new DAOException(e);
-
         }
         treasureList = getListTreasure();
         return treasureList;
     }
 
-    private ArrayList<Treasure> getListTreasure() {
+    private ArrayList<Treasure> getListTreasure() throws DAOException {
         treasureList = new ArrayList<>();
         try {
             while (reader.hasNext()) {
@@ -65,7 +60,7 @@ public class StAXTreasureParser implements TreasureParser {
                 }
             }
         } catch (XMLStreamException e) {
-            e.printStackTrace();
+           throw new DAOException();
         }
         return treasureList;
     }
@@ -77,30 +72,24 @@ public class StAXTreasureParser implements TreasureParser {
             if (id != null) {
                 treasureBuilder = builderProvider.
                         getConcreteBuilder(reader.getAttributeValue(null, "element"));
-                if (treasureBuilder != null) {
-                    treasureBuilder.setParameter("id", id);
-                }
+                treasureBuilder.setParameter("id", id);
             }
         }
     }
 
     private void characters() {
-        if (treasureBuilder != null) {
-            String tagValue = reader.getText().trim();
-            if (!tagValue.isEmpty()) {
-                treasureBuilder.setParameter(tagName, tagValue);
-            }
+        String tagValue = reader.getText().trim();
+        if (!tagValue.isEmpty()) {
+            treasureBuilder.setParameter(tagName, tagValue);
         }
     }
 
-    private void endElement(){
-        if (treasureBuilder != null) {
-            tagName = reader.getLocalName();
-            if (!ParserUtil.isRootNode(tagName)) {
-                if (ParserUtil.isChildNode(tagName)) {
-                    Treasure treasure = treasureBuilder.build();
-                    treasureList.add(treasure);
-                }
+    private void endElement() {
+        tagName = reader.getLocalName();
+        if (!ParserUtil.isRootNode(tagName)) {
+            if (ParserUtil.isChildNode(tagName)) {
+                Treasure treasure = treasureBuilder.build();
+                treasureList.add(treasure);
             }
         }
     }

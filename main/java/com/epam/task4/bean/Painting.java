@@ -74,23 +74,64 @@ public class Painting extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Painting)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Painting painting = (Painting) o;
 
-        if (Double.compare(painting.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(painting.getTitle()) : painting.getTitle() != null) return false;
-        if (getType() != null ? !getType().equals(painting.getType()) : painting.getType() != null) return false;
-        if (getCreationDate() != null ? !getCreationDate().equals(painting.getCreationDate()) : painting.getCreationDate() != null)
+        if (price != painting.price) {
             return false;
-        if (getCreator() != null ? !getCreator().equals(painting.getCreator()) : painting.getCreator() != null)
+        }
+        if (type == null) {
             return false;
-        if (getQuality() != null ? !getQuality().equals(painting.getQuality()) : painting.getQuality() != null)
+        } else {
+            if (!type.equals(painting.type)) {
+                return false;
+            }
+        }
+        if (title == null) {
             return false;
-        return getPaintType() != null ? getPaintType().equals(painting.getPaintType()) : painting.getPaintType() == null;
-
+        } else {
+            if (!title.equals(painting.title)) {
+                return false;
+            }
+        }
+        if (quality == null) {
+            return false;
+        } else {
+            if (!quality.equals(painting.quality)) {
+                return false;
+            }
+        }
+        if (paintType == null) {
+            return false;
+        } else {
+            if (!paintType.equals(painting.paintType)) {
+                return false;
+            }
+        }
+        if (creator == null) {
+            return false;
+        } else {
+            if (!creator.equals(painting.creationDate)) {
+                return false;
+            }
+        }
+        if (creationDate == null) {
+            return false;
+        } else {
+            if (!creationDate.equals(painting.creationDate)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -110,7 +151,7 @@ public class Painting extends Treasure {
 
     @Override
     public String toString() {
-        return "Painting{" +
+        return  super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", type='" + type + '\'' +
                 ", creationDate='" + creationDate + '\'' +

@@ -65,20 +65,49 @@ public class Boot extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Boot)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Boot boot = (Boot) o;
 
-        if (isLegProtection() != boot.isLegProtection()) return false;
-        if (Double.compare(boot.getFootGirth(), getFootGirth()) != 0) return false;
-        if (Double.compare(boot.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(boot.getTitle()) : boot.getTitle() != null) return false;
-        if (getMaterial() != null ? !getMaterial().equals(boot.getMaterial()) : boot.getMaterial() != null)
+        if (price != boot.price) {
             return false;
-        return getType() != null ? getType().equals(boot.getType()) : boot.getType() == null;
-
+        }
+        if (legProtection != boot.legProtection) {
+            return false;
+        }
+        if (footGirth != boot.footGirth) {
+            return false;
+        }
+        if (material == null) {
+            return false;
+        } else {
+            if (!material.equals(boot.material)) {
+                return false;
+            }
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(boot.title)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(boot.type)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -98,7 +127,7 @@ public class Boot extends Treasure {
 
     @Override
     public String toString() {
-        return "Boot{" +
+        return  super.toString() +"{" +
                 "title='" + title + '\'' +
                 ", material='" + material + '\'' +
                 ", type='" + type + '\'' +

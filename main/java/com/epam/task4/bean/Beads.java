@@ -8,7 +8,7 @@ public class Beads extends Treasure {
     private double length;
     private String material;
     private double weight;
-    private double thikness;
+    private double thickness;
     private double price;
 
     public Beads() {
@@ -39,11 +39,11 @@ public class Beads extends Treasure {
     }
 
     public double getThikness() {
-        return thikness;
+        return thickness;
     }
 
     public void setThikness(double thikness) {
-        this.thikness = thikness;
+        this.thickness = thikness;
     }
 
     public double getPrice() {
@@ -56,18 +56,38 @@ public class Beads extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Beads)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Beads beads = (Beads) o;
 
-        if (Double.compare(beads.getLength(), getLength()) != 0) return false;
-        if (Double.compare(beads.getWeight(), getWeight()) != 0) return false;
-        if (Double.compare(beads.getThikness(), getThikness()) != 0) return false;
-        if (Double.compare(beads.getPrice(), getPrice()) != 0) return false;
-        return getMaterial() != null ? getMaterial().equals(beads.getMaterial()) : beads.getMaterial() == null;
-
+        if (length != beads.length) {
+            return false;
+        }
+        if (price != beads.price) {
+            return false;
+        }
+        if (weight != beads.weight) {
+            return false;
+        }
+        if (thickness != beads.thickness) {
+            return false;
+        }
+        if (material == null) {
+            return false;
+        } else {
+            if (!material.equals(beads.material)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -88,11 +108,11 @@ public class Beads extends Treasure {
 
     @Override
     public String toString() {
-        return "Beads{" +
+        return  super.toString() + "{" +
                 "length=" + length +
                 ", material='" + material + '\'' +
                 ", weight=" + weight +
-                ", thikness=" + thikness +
+                ", thikness=" + thickness +
                 ", price=" + price +
                 '}';
     }

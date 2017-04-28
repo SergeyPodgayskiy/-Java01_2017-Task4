@@ -128,7 +128,7 @@ public class Bracelet extends Treasure {
 
     @Override
     public String toString() {
-        return "Bracelet{" +
+        return super.toString() + "{" +
                 "material='" + material + '\'' +
                 ", weight=" + weight +
                 ", style='" + style + '\'' +

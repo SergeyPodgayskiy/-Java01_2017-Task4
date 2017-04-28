@@ -65,19 +65,49 @@ public class AncientBook extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof AncientBook)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
-        AncientBook that = (AncientBook) o;
+        AncientBook ancientBook = (AncientBook) o;
 
-        if (getAge() != that.getAge()) return false;
-        if (getPages() != that.getPages()) return false;
-        if (Double.compare(that.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(that.getTitle()) : that.getTitle() != null) return false;
-        if (getType() != null ? !getType().equals(that.getType()) : that.getType() != null) return false;
-        return getLanguage() != null ? getLanguage().equals(that.getLanguage()) : that.getLanguage() == null;
-
+        if (age != ancientBook.age) {
+            return false;
+        }
+        if (price != ancientBook.price) {
+            return false;
+        }
+        if (pages != ancientBook.pages) {
+            return false;
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(ancientBook.title)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(ancientBook.type)) {
+                return false;
+            }
+        }
+        if (language == null) {
+            return false;
+        } else {
+            if (!language.equals(ancientBook.language)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -96,7 +126,7 @@ public class AncientBook extends Treasure {
 
     @Override
     public String toString() {
-        return "AncientBook{" +
+        return super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", age=" + age +
                 ", type='" + type + '\'' +

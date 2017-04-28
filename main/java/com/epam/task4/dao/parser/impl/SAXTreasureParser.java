@@ -20,16 +20,13 @@ public class SAXTreasureParser implements TreasureParser {
 
     @Override
     public ArrayList<Treasure> parse(String path) throws DAOException {
-        if (path == null || path.isEmpty()){
-            throw new DAOException("Incorrect filePath");
-        }
         InputSource inputSource = new InputSource(path);
         try {
             XMLReader xmlReader = XMLReaderFactory.createXMLReader();
             xmlReader.setContentHandler(saxTreasureHandler);
             xmlReader.parse(inputSource);
         } catch (IOException | SAXException e){
-            System.err.println(e);
+            throw new DAOException();
         }
         return saxTreasureHandler.getTreasureList();
     }

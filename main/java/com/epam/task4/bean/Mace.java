@@ -56,18 +56,42 @@ public class Mace extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Mace)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Mace mace = (Mace) o;
 
-        if (Double.compare(mace.getSize(), getSize()) != 0) return false;
-        if (Double.compare(mace.getDamage(), getDamage()) != 0) return false;
-        if (Double.compare(mace.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(mace.getTitle()) : mace.getTitle() != null) return false;
-        return getType() != null ? getType().equals(mace.getType()) : mace.getType() == null;
-
+        if (price != mace.price) {
+            return false;
+        }
+        if (size != mace.size) {
+            return false;
+        }
+        if (damage != mace.damage) {
+            return false;
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(mace.type)) {
+                return false;
+            }
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(mace.title)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -87,7 +111,7 @@ public class Mace extends Treasure {
 
     @Override
     public String toString() {
-        return "Mace{" +
+        return  super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", type='" + type + '\'' +
                 ", size=" + size +

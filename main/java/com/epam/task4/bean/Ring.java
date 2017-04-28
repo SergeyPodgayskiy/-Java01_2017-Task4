@@ -111,7 +111,7 @@ public class Ring extends Treasure {
 
     @Override
     public String toString() {
-        return "Ring{" +
+        return  super.toString() + "{" +
                 "material='" + material + '\'' +
                 ", weight=" + weight +
                 ", style='" + style + '\'' +

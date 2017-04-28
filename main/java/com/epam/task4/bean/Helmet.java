@@ -65,19 +65,49 @@ public class Helmet extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Helmet)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Helmet helmet = (Helmet) o;
 
-        if (Double.compare(helmet.getHeadGirth(), getHeadGirth()) != 0) return false;
-        if (Double.compare(helmet.getHeadProtection(), getHeadProtection()) != 0) return false;
-        if (Double.compare(helmet.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(helmet.getTitle()) : helmet.getTitle() != null) return false;
-        if (getType() != null ? !getType().equals(helmet.getType()) : helmet.getType() != null) return false;
-        return getMaterial() != null ? getMaterial().equals(helmet.getMaterial()) : helmet.getMaterial() == null;
-
+        if (price != helmet.price) {
+            return false;
+        }
+        if (headGirth != helmet.headGirth) {
+            return false;
+        }
+        if (headProtection != helmet.headProtection) {
+            return false;
+        }
+        if (material == null) {
+            return false;
+        } else {
+            if (!material.equals(helmet.material)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(helmet.type)) {
+                return false;
+            }
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(helmet.title)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -98,7 +128,7 @@ public class Helmet extends Treasure {
 
     @Override
     public String toString() {
-        return "Helmet{" +
+        return  super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", type='" + type + '\'' +
                 ", material='" + material + '\'' +

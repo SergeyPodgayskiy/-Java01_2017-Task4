@@ -74,21 +74,56 @@ public class AncientTissue extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof AncientTissue)) return false;
-        if (!super.equals(o)) return false;
-
-        AncientTissue that = (AncientTissue) o;
-
-        if (Double.compare(that.getSize(), getSize()) != 0) return false;
-        if (isHasPattern() != that.isHasPattern()) return false;
-        if (Double.compare(that.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(that.getTitle()) : that.getTitle() != null) return false;
-        if (getType() != null ? !getType().equals(that.getType()) : that.getType() != null) return false;
-        if (getMaterial() != null ? !getMaterial().equals(that.getMaterial()) : that.getMaterial() != null)
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
             return false;
-        return getTypePattern() != null ? getTypePattern().equals(that.getTypePattern()) : that.getTypePattern() == null;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
+        AncientTissue ancientTissue = (AncientTissue) o;
+
+        if (size != ancientTissue.size) {
+            return false;
+        }
+        if (price != ancientTissue.price) {
+            return false;
+        }
+        if (hasPattern != ancientTissue.hasPattern) {
+            return false;
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(ancientTissue.title)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(ancientTissue.type)) {
+                return false;
+            }
+        }
+        if (material == null) {
+            return false;
+        } else {
+            if (!material.equals(ancientTissue.material)) {
+                return false;
+            }
+        }
+        if (typePattern == null) {
+            return false;
+        } else {
+            if (!typePattern.equals(ancientTissue.typePattern)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -109,7 +144,7 @@ public class AncientTissue extends Treasure {
 
     @Override
     public String toString() {
-        return "AncientTissue{" +
+        return  super.toString() +"{" +
                 "title='" + title + '\'' +
                 ", type='" + type + '\'' +
                 ", size=" + size +

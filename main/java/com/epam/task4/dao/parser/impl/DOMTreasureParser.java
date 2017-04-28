@@ -28,9 +28,6 @@ public class DOMTreasureParser implements TreasureParser {
 
     @Override
     public ArrayList<Treasure> parse(String path) throws DAOException {
-        if (path == null || path.isEmpty()) {
-            throw new DAOException("Incorrect filePath");
-        }
         InputSource inputSource = new InputSource(path);
         DOMParser domParser = new DOMParser();
         try {
@@ -50,10 +47,8 @@ public class DOMTreasureParser implements TreasureParser {
         for (int i = 0; i < treasureNodes.getLength(); i++) {
             Element element = (Element) treasureNodes.item(i);
             treasureBuilder = builderProvider.getConcreteBuilder(element.getAttribute("element"));
-            if (treasureBuilder != null) {
                 treasureBuilder.setParameter("id", element.getAttribute("id"));
                 NodeList nodeList = element.getChildNodes();
-
                 for (int j = 1; j < nodeList.getLength(); j++) {
                     Node node = nodeList.item(j);
                     if (node.getLocalName() != null) {
@@ -62,7 +57,6 @@ public class DOMTreasureParser implements TreasureParser {
                 }
                 treasure = treasureBuilder.build();
                 treasureList.add(treasure);
-            }
         }
         return treasureList;
     }

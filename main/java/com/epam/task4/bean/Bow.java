@@ -74,20 +74,52 @@ public class Bow extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Bow)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Bow bow = (Bow) o;
 
-        if (Double.compare(bow.getSize(), getSize()) != 0) return false;
-        if (getAmountArrow() != bow.getAmountArrow()) return false;
-        if (Double.compare(bow.getDamage(), getDamage()) != 0) return false;
-        if (Double.compare(bow.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(bow.getTitle()) : bow.getTitle() != null) return false;
-        if (getType() != null ? !getType().equals(bow.getType()) : bow.getType() != null) return false;
-        return getTypeArrow() != null ? getTypeArrow().equals(bow.getTypeArrow()) : bow.getTypeArrow() == null;
-
+        if (price != bow.price) {
+            return false;
+        }
+        if (size != bow.size) {
+            return false;
+        }
+        if (amountArrow != bow.amountArrow) {
+            return false;
+        }
+        if (damage != bow.damage) {
+            return false;
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(bow.title)) {
+                return false;
+            }
+        }
+        if (typeArrow == null) {
+            return false;
+        } else {
+            if (!typeArrow.equals(bow.typeArrow)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(bow.type)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -109,7 +141,7 @@ public class Bow extends Treasure {
 
     @Override
     public String toString() {
-        return "Bow{" +
+        return  super.toString() +"{" +
                 "title='" + title + '\'' +
                 ", type='" + type + '\'' +
                 ", size=" + size +

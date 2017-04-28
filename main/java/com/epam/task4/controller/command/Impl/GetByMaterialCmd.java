@@ -14,7 +14,6 @@ import java.util.ArrayList;
  *         21.04.2017.
  */
 public class GetByMaterialCmd implements Command {
-
     @Override
     public String execute(String request, String parserType) {
         String response;

@@ -56,18 +56,46 @@ public class AncientScroll extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof AncientScroll)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
-        AncientScroll that = (AncientScroll) o;
+        AncientScroll ancientScroll = (AncientScroll) o;
 
-        if (getAge() != that.getAge()) return false;
-        if (Double.compare(that.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(that.getTitle()) : that.getTitle() != null) return false;
-        if (getText() != null ? !getText().equals(that.getText()) : that.getText() != null) return false;
-        return getSchoolOfMagic() != null ? getSchoolOfMagic().equals(that.getSchoolOfMagic()) : that.getSchoolOfMagic() == null;
-
+        if (age != ancientScroll.age) {
+            return false;
+        }
+        if (price != ancientScroll.price) {
+            return false;
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(ancientScroll.title)) {
+                return false;
+            }
+        }
+        if (text == null) {
+            return false;
+        } else {
+            if (!text.equals(ancientScroll.text)) {
+                return false;
+            }
+        }
+        if (schoolOfMagic == null) {
+            return false;
+        } else {
+            if (!schoolOfMagic.equals(ancientScroll.schoolOfMagic)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -85,7 +113,7 @@ public class AncientScroll extends Treasure {
 
     @Override
     public String toString() {
-        return "AncientScroll{" +
+        return super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", age=" + age +
                 ", text='" + text + '\'' +

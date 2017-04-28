@@ -42,12 +42,14 @@ public abstract class Treasure implements Serializable {
 
     @Override
     public int hashCode() {
-        return getId();
+        int result;
+        result = 31 * getId();
+        return result;
     }
 
     @Override
     public String toString() {
-        return "Treasure{" +
+        return  getClass().getName() + "{" +
                 "id=" + id +
                 '}';
     }

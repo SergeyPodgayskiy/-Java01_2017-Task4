@@ -47,17 +47,39 @@ public class Aroma extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Aroma)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Aroma aroma = (Aroma) o;
 
-        if (getAmount() != aroma.getAmount()) return false;
-        if (Double.compare(aroma.getPrice(), getPrice()) != 0) return false;
-        if (getTitle() != null ? !getTitle().equals(aroma.getTitle()) : aroma.getTitle() != null) return false;
-        return getType() != null ? getType().equals(aroma.getType()) : aroma.getType() == null;
-
+        if (price != aroma.price) {
+            return false;
+        }
+        if (amount != aroma.amount) {
+            return false;
+        }
+        if (title == null) {
+            return false;
+        } else {
+            if (!title.equals(aroma.title)) {
+                return false;
+            }
+        }
+        if (type == null) {
+            return false;
+        } else {
+            if (!type.equals(aroma.type)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -74,7 +96,7 @@ public class Aroma extends Treasure {
 
     @Override
     public String toString() {
-        return "Aroma{" +
+        return  super.toString() + "{" +
                 "title='" + title + '\'' +
                 ", type='" + type + '\'' +
                 ", amount=" + amount +

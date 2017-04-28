@@ -5,6 +5,12 @@ import com.epam.task4.bean.Treasure;
 import com.epam.task4.service.builder.TreasureBuilder;
 
 public class RingBuilder implements TreasureBuilder {
+    private final String id = "id";
+    private final String material = "material";
+    private final String weight = "weight";
+    private final String style = "style";
+    private final String hasPreciousStone = "hasPreciousStone";
+    private final String price = "price";
     private Ring ring;
 
     @Override
@@ -14,24 +20,24 @@ public class RingBuilder implements TreasureBuilder {
     }
 
     @Override
-    public TreasureBuilder setParameter(String tagName,String tagValue) {
+    public TreasureBuilder setParameter(String tagName, String tagValue) {
         switch (tagName) {
-            case "id":
+            case id:
                 ring.setId(Integer.parseInt(tagValue));
                 return this;
-            case "material":
+            case material:
                 ring.setMaterial(tagValue);
                 return this;
-            case "weight":
+            case weight:
                 ring.setWeight(Double.parseDouble(tagValue));
                 return this;
-            case "style":
+            case style:
                 ring.setStyle(tagValue);
                 return this;
-            case "hasPreciousStone":
+            case hasPreciousStone:
                 ring.setHasPreciousStone(Boolean.parseBoolean(tagValue));
                 return this;
-            case "price":
+            case price:
                 ring.setPrice(Double.parseDouble(tagValue));
                 return this;
             default:

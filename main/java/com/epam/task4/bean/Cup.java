@@ -56,18 +56,38 @@ public class Cup extends Treasure {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Cup)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
 
         Cup cup = (Cup) o;
 
-        if (Double.compare(cup.getVolume(), getVolume()) != 0) return false;
-        if (Double.compare(cup.getWeight(), getWeight()) != 0) return false;
-        if (Double.compare(cup.getHeight(), getHeight()) != 0) return false;
-        if (Double.compare(cup.getPrice(), getPrice()) != 0) return false;
-        return getMaterial() != null ? getMaterial().equals(cup.getMaterial()) : cup.getMaterial() == null;
-
+        if (price != cup.price) {
+            return false;
+        }
+        if (height != cup.height) {
+            return false;
+        }
+        if (weight != cup.weight) {
+            return false;
+        }
+        if (volume != cup.volume) {
+            return false;
+        }
+        if (material == null) {
+            return false;
+        } else {
+            if (!material.equals(cup.material)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -88,7 +108,7 @@ public class Cup extends Treasure {
 
     @Override
     public String toString() {
-        return "Cup{" +
+        return  super.toString() + "{" +
                 "volume=" + volume +
                 ", material='" + material + '\'' +
                 ", weight=" + weight +

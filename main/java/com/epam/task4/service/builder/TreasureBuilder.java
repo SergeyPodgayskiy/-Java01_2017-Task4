@@ -8,8 +8,6 @@ import com.epam.task4.bean.Treasure;
  */
 public interface TreasureBuilder {
     TreasureBuilder createTreasure();
-
     TreasureBuilder setParameter(String tagName, String tagValue);
-
     Treasure build();
 }

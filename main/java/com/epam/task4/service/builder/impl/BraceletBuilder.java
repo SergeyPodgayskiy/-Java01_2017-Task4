@@ -6,7 +6,14 @@ import com.epam.task4.service.builder.TreasureBuilder;
 
 
 public class BraceletBuilder implements TreasureBuilder {
-    Bracelet bracelet;
+    private final String id = "id";
+    private final String material = "material";
+    private final String style = "style";
+    private final String weight = "weight";
+    private final String price = "price";
+    private final String hardness = "hardness";
+    private final String girth = "girth";
+    private Bracelet bracelet;
 
     @Override
     public TreasureBuilder createTreasure() {
@@ -17,25 +24,25 @@ public class BraceletBuilder implements TreasureBuilder {
     @Override
     public TreasureBuilder setParameter(String tagName,String tagValue) {
         switch (tagName) {
-            case "id":
+            case id:
                 bracelet.setId(Integer.parseInt(tagValue));
                 return this;
-            case "material":
+            case material:
                 bracelet.setMaterial(tagValue);
                 return this;
-            case "weight":
+            case weight:
                 bracelet.setWeight(Double.parseDouble(tagValue));
                 return this;
-            case "style":
+            case style:
                 bracelet.setStyle(tagValue);
                 return this;
-            case "girth":
+            case girth:
                 bracelet.setGirth(Double.parseDouble(tagValue));
                 return this;
-            case "hardness":
+            case hardness:
                 bracelet.setHardness(tagValue);
                 return this;
-            case "price":
+            case price:
                 bracelet.setPrice(Double.parseDouble(tagValue));
                 return this;
             default:

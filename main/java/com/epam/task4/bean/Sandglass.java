@@ -109,7 +109,7 @@ public class Sandglass extends Treasure {
 
     @Override
     public String toString() {
-        return "Sandglass{" +
+        return  super.toString() + "{" +
                 "material='" + material + '\'' +
                 ", sandType='" + sandType + '\'' +
                 ", weight=" + weight +

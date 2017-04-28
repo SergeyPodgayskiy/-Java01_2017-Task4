@@ -42,11 +42,8 @@ public class SAXTreasureHandler extends DefaultHandler {
         tagValue = new StringBuilder();
         if (attributes.getValue("id") != null) {
             treasureBuilder = builderProvider.getConcreteBuilder(attributes.getValue("element"));
-            if (treasureBuilder != null) {
-                treasureBuilder.setParameter("id", attributes.getValue("id"));
-            }
+            treasureBuilder.setParameter("id", attributes.getValue("id"));
         }
-
     }
 
     @Override

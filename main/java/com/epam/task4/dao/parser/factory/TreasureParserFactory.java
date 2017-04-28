@@ -18,20 +18,43 @@ public final class TreasureParserFactory {
     }
 
     public TreasureParser createTreasureParser(String parserType) throws DAOException {
-        String type = parserType.toUpperCase();
+        Parser type = Parser.valueOf(parserType.toUpperCase());
         switch (type) {
-            case "SAX": {
-                return new SAXTreasureParser();
+            case SAX: {
+                return Parser.SAX.createParser();
             }
-            case "STAX": {
-                return new StAXTreasureParser();
+            case STAX: {
+                return Parser.STAX.createParser();
             }
-            case "DOM": {
-                return new DOMTreasureParser();
+            case DOM: {
+                return Parser.DOM.createParser();
             }
             default: {
                 throw new DAOException("Not existed parser type");
             }
         }
+    }
+
+    enum Parser {
+        SAX {
+            @Override
+            public TreasureParser createParser() {
+                return new SAXTreasureParser();
+            }
+        },
+        STAX {
+            @Override
+            public TreasureParser createParser() {
+                return new StAXTreasureParser();
+            }
+        },
+        DOM {
+            @Override
+            public TreasureParser createParser() {
+                return new DOMTreasureParser();
+            }
+        };
+
+        public abstract TreasureParser createParser();
     }
 }

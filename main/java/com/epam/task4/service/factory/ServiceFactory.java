@@ -24,12 +24,15 @@ public final class ServiceFactory {
 
 
     public TreasureService getConcreteService(String serviceName){
+        final String sax = "sax";
+        final String stax = "stax";
+        final String dom = "dom";
         switch (serviceName){
-            case "sax":
+            case sax:
                 return saxTreasureService;
-            case "stax":
+            case stax:
                 return staxTreasureService;
-            case "dom":
+            case dom:
                 return domTreasureService;
             default:
                 throw new IllegalArgumentException();

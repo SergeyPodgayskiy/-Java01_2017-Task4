@@ -125,7 +125,7 @@ public class Chain extends Treasure {
 
     @Override
     public String toString() {
-        return "Chain{" +
+        return  super.toString() + "{" +
                 "length=" + length +
                 ", weight=" + weight +
                 ", material='" + material + '\'' +
